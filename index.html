@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farruh & Shodiena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fefefe;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 40px;
+            max-width: 800px;
+        }
+
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Invitation Section */
+        .invitation {
+            padding: 100px 0;
+            background: #f9f7f4;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e3e;
+            letter-spacing: 2px;
+        }
+
+        .invitation-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .dear-guests {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #5d7373;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .invitation-message {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Details Section */
+        .details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c3e3e;
+            margin-bottom: 15px;
+        }
+
+        .location {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #5d7373;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: #d4b483;
+            margin: 20px 0;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .time {
+            font-size: 2.5rem;
+            color: #2c3e3e;
+            font-weight: 500;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            padding: 80px 0;
+            background: #f9f7f4;
+        }
+
+        .wedding-photo {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            margin: 0 auto 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e3e;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .initials-large {
+            color: #d4b483;
+            font-size: 3rem;
+            letter-spacing: 10px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e3e;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-initials {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            color: #d4b483;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .names { font-size: 3.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .dear-guests { font-size: 1.5rem; }
+            .date { font-size: 2.5rem; }
+            .time { font-size: 2rem; }
+            .detail-card { padding: 30px 20px; }
+            .wedding-photo { height: 350px; }
+            .photo-caption { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="IMG_1060.jpeg" alt="Farruh & Shodiena" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1 class="names">Farruh & Shodiena</h1>
+        </div>
+    </section>
+
+    <!-- Invitation Section -->
+    <section class="invitation">
+        <div class="container">
+            <div class="invitation-text fade-in">
+                <h2 class="dear-guests">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ</h2>
+                <p class="invitation-message">
+                    Приглашаем вас отпраздновать вместе с нами дни нашей свадьбы.
+                </p>
+            </div>
+
+            <div class="details">
+                <div class="detail-card fade-in">
+                    <h3 class="detail-title">Место торжества</h3>
+                    <p class="location">Банкетный зал "LION"</p>
+                    <p>г. Оренбург</p>
+                </div>
+
+                <div class="detail-card fade-in">
+                    <h3 class="detail-title">Дата свадьбы</h3>
+                    <div class="date">18.06.2026/19.06.2026</div>
+                </div>
+
+                <div class="detail-card fade-in">
+                    <h3 class="detail-title">Время проведения</h3>
+                    <div class="time">18:00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Section -->
+    <section class="photo-section">
+        <div class="container">
+            <img src="IMG_1059.jpeg" alt="Farruh & Shodiena" class="wedding-photo fade-in">
+            <div class="photo-caption fade-in">
+                С ЛЮБОВЬЮ<br>
+                <span class="initials-large">F & SH</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-initials">F & SH</div>
+            <p>18.06.2026/19.06.2026</p>
+            <p style="opacity: 0.8; margin-top: 20px; font-size: 0.9rem;">Farruh & Shodiena</p>
+        </div>
+    </footer>
+
+    <script>
+        // Добавляем класс fade-in при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
